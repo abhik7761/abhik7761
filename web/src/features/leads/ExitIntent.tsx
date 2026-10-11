@@ -5,10 +5,18 @@ import { QuoteForm } from './QuoteForm';
 export function ExitIntent() {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches || sessionStorage.getItem('exit_shown')) return;
+    try {
+      if (window.matchMedia('(pointer: coarse)').matches || sessionStorage.getItem('exit_shown')) return;
+    } catch {
+      return;
+    }
     const h = (e: MouseEvent) => {
       if (e.clientY <= 0) {
-        sessionStorage.setItem('exit_shown', '1');
+        try {
+          sessionStorage.setItem('exit_shown', '1');
+        } catch {
+          /* ignore */
+        }
         setShow(true);
       }
     };

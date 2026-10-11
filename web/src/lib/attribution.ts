@@ -12,8 +12,16 @@ const FIELDS = [
   'fbclid',
 ] as const;
 
+let memory: Attribution | null = null;
 const readCookie = () => {
-  const m = document.cookie.split('; ').find((c) => c.startsWith(`${KEY}=`));
+  if (memory) return memory;
+  let jar: string;
+  try {
+    jar = document.cookie;
+  } catch {
+    return null;
+  }
+  const m = jar.split('; ').find((c) => c.startsWith(`${KEY}=`));
   if (!m) return null;
   try {
     return JSON.parse(decodeURIComponent(m.slice(KEY.length + 1))) as Attribution;
@@ -40,7 +48,12 @@ export function captureAttribution(): Attribution {
     referrer: document.referrer,
     firstSeenAt: new Date().toISOString(),
   };
-  document.cookie = `${KEY}=${encodeURIComponent(JSON.stringify(a))}; max-age=${DAYS * 86400}; path=/; SameSite=Lax`;
+  memory = a;
+  try {
+    document.cookie = `${KEY}=${encodeURIComponent(JSON.stringify(a))}; max-age=${DAYS * 86400}; path=/; SameSite=Lax`;
+  } catch {
+    /* cookies blocked: keep in memory */
+  }
   return a;
 }
 export const getAttribution = () => readCookie() ?? captureAttribution();

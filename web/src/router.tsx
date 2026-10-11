@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, Outlet } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { LandingLayout } from './components/layout/LandingLayout';
 import { ChatWidget } from './features/support/ChatWidget';
@@ -17,7 +17,9 @@ const page = (loader: () => Promise<{ default: React.ComponentType }>) => ({
   lazy: async () => ({ Component: (await loader()).default }),
 });
 
-export const router = createBrowserRouter([
+// Static previews (no server rewrites) set VITE_HASH_ROUTER=true.
+const createRouter = import.meta.env.VITE_HASH_ROUTER === 'true' ? createHashRouter : createBrowserRouter;
+export const router = createRouter([
   {
     element: <Root />,
     children: [

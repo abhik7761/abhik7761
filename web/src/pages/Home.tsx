@@ -73,7 +73,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.12 }}
                 >
-                  {w}
+                  {w}{' '}
                 </motion.span>
               ))}
             </h1>

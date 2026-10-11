@@ -7,7 +7,7 @@ import { router } from './router';
 import { applyTheme } from './config/brand';
 import { captureAttribution } from './lib/attribution';
 import { getConsent, loadGtm } from './lib/consent';
-import { useMocks } from './api/client';
+import { inlineMocks, useMocks } from './api/client';
 import './styles/index.css';
 
 applyTheme();
@@ -16,7 +16,7 @@ if (getConsent() === 'accepted') loadGtm();
 const qc = new QueryClient({ defaultOptions: { queries: { staleTime: 60_000, retry: 1 } } });
 
 async function boot() {
-  if (useMocks) {
+  if (useMocks && !inlineMocks) {
     const { worker } = await import('./mocks/browser');
     await worker.start({ onUnhandledRequest: 'bypass', serviceWorker: { url: '/mockServiceWorker.js' } });
   }

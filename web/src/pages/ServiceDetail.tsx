@@ -57,7 +57,7 @@ export default function ServiceDetail() {
         </div>
       </section>
       <div className="container-x grid gap-10 py-14 lg:grid-cols-[1fr_380px]">
-        <div className="space-y-12">
+        <div className="min-w-0 space-y-12">
           <section>
             <h2 className="text-2xl font-bold">What&apos;s included</h2>
             <ul className="mt-3 list-disc space-y-1 pl-5">

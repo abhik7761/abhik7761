@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://YOUR_DOMAIN/</loc></url>
+  <url><loc>https://YOUR_DOMAIN/services</loc></url>
+  <url><loc>https://YOUR_DOMAIN/shop</loc></url>
+  <url><loc>https://YOUR_DOMAIN/book</loc></url>
+  <url><loc>https://YOUR_DOMAIN/about</loc></url>
+  <url><loc>https://YOUR_DOMAIN/contact</loc></url>
+  <url><loc>https://YOUR_DOMAIN/service-areas</loc></url>
+  <url><loc>https://YOUR_DOMAIN/faq</loc></url>
+  <url><loc>https://YOUR_DOMAIN/privacy</loc></url>
+  <url><loc>https://YOUR_DOMAIN/terms</loc></url>
+  <url><loc>https://YOUR_DOMAIN/cookies</loc></url>
+  <url><loc>https://YOUR_DOMAIN/ccpa</loc></url>
+  <url><loc>https://YOUR_DOMAIN/refunds</loc></url>
+  <url><loc>https://YOUR_DOMAIN/warranty</loc></url>
+  <url><loc>https://YOUR_DOMAIN/accessibility</loc></url>
+  <url><loc>https://YOUR_DOMAIN/brands/garmin</loc></url>
+  <url><loc>https://YOUR_DOMAIN/brands/lowrance</loc></url>
+</urlset>
